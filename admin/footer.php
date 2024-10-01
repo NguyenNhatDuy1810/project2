@@ -1,7 +1,27 @@
-        <div class="Footer_footer-bottom__oJbPe">
-            <h3>© emdiisuy with love</h3>
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>Về Shop</h3>
+            <p>Chúng tôi cung cấp các sản phẩm thời trang cao cấp, phong cách hiện đại và chất lượng đảm bảo.</p>
+        </div>
+        <div class="footer-links">
+            <h3>Liên kết</h3>
+            <ul>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Chính sách hoàn trả</a></li>
+                <li><a href="#">Điều khoản sử dụng</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Kết nối với chúng tôi</h3>
+            <ul>
+                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                <li><a href="#"><i class="bi bi-envelope"></i></a></li>
+            </ul>
         </div>
     </div>
-</div>
+    <p>© 2024 Emdiisuy with love</p>
+</footer>
 </body>
 </html>

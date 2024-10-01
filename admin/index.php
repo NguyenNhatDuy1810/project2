@@ -8,7 +8,7 @@ if (isset($_GET['act'])) {
     $act=$_GET['act'];
     switch ($act) {
         case 'return':
-            header("Location: header.php");
+            header("Location: index.php");
             exit();
             break;
         case 'listdm':
