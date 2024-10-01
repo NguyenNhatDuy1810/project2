@@ -7,6 +7,10 @@ include "../model/sanpham.php";
 if (isset($_GET['act'])) {
     $act=$_GET['act'];
     switch ($act) {
+        case 'return':
+            header("Location: header.php");
+            exit();
+            break;
         case 'listdm':
             $listdanhmuc=loading_danhmuc();
             include "danhmuc/list.php";
@@ -16,8 +20,12 @@ if (isset($_GET['act'])) {
                 $tenloai=$_POST['tenloai'];
                 insert_danhmuc($tenloai);
                 $thongbao = "Thêm thành công";               
-            } include "danhmuc/add.php";
+            } 
+            include "danhmuc/add.php";
             break;
+            case 'updatedm':
+                # code...
+                break;
         default:
         include "home.php";
         break;
@@ -25,5 +33,5 @@ if (isset($_GET['act'])) {
 } else {
 include "home.php";
 }
-// include "footer.php";
+include "footer.php";
 ?>

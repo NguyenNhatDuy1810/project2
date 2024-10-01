@@ -12,7 +12,7 @@
                                     <th>#</th>
                                     <th>Mã Loại</th>
                                     <th>Tên Loại</th>
-                                    <th></th>
+                                    <th>Ghi Chú</th>
                                 </tr>                       
                             <tbody>
                                 <?php
