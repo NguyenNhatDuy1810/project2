@@ -18,26 +18,32 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <form class="d-flex me-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Tìm</button>
       </form>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
         </li>
         <li class="nav-item dropdown">
+          <?php if(isset($_SESSION['user'])):?>
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Tài Khoản
+          <?php echo htmlspecialchars($_SESSION['user']['name']); ?>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.php?act=listdm">Tài Khoản</a></li>
             <li><a class="dropdown-item" href="#">Thông tin</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Đăng nhập Admin</a></li>
-            <li><a href="" class="dropdown-item">Chi tiết đơn hàng</a></li>
+            <?php if($_SESSION['user']['role'] == 1): ?>
+            <li><a class="dropdown-item" href="index.php?act=admin">Đăng nhập Admin</a></li>
+            <?php endif; ?>
+            <li><a href="index.php?act=ctdh" class="dropdown-item">Chi tiết đơn hàng</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a href="" class="dropdown-item">Đăng Xuất</a></li>
+            <li><a href="index.php?act=out" class="dropdown-item">Đăng Xuất</a></li>
           </ul>
+          <?php else: ?>
+          <a class="nav-link" href="index.php?act=login">Tài Khoản</a>
+          <?php endif; ?>
         </li>
       </ul>
     </div>

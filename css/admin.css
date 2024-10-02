@@ -32,7 +32,6 @@ body {
 }
 
 .navbar {
-    margin-left: 250px; /* Đảm bảo navbar không bị đè lên sidebar */
     background-color: #ffffff;
     border-bottom: 1px solid #dee2e6;
 }

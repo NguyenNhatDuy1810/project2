@@ -1,4 +1,5 @@
 <?php
+session_start();    
     include "view/header.php";
     include "model/pdo.php";
 
@@ -6,10 +7,15 @@
     if (isset($_GET['act'])) {
         $act=$_GET['act'];
         switch ($act) {
-            case 'value':
-                # code...
-                break;
-            
+            case 'return':
+                header("Location: index.php");
+                exit();
+            case 'login':
+                header("Location: https://www.youtube.com/watch?v=WyhoZAWlnUg");
+                exit();
+            case 'admin':
+                header("Location: admin/index.php");
+                exit();
             default:
                 include "view/home.php";
                 break;
