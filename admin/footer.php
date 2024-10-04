@@ -15,9 +15,9 @@
         <div class="footer-social">
             <h3>Kết nối với chúng tôi</h3>
             <ul>
-                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="#"><i class="bi bi-envelope"></i></a></li>
+                <li><a href="https://www.facebook.com/emdii181004"><i class="bi bi-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/emdiisuy/"><i class="bi bi-instagram"></i></a></li>
+                <li><a href="tel:+84707348059"><i class="bi bi-telephone-outbound"></i></a></li>
             </ul>
         </div>
     </div>
