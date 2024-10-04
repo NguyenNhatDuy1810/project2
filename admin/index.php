@@ -23,9 +23,29 @@ if (isset($_GET['act'])) {
             } 
             include "danhmuc/add.php";
             break;
-            case 'updatedm':
-                # code...
-                break;
+        case 'xoadm':
+                if (isset($_GET['id']) && $_GET['id']>0) {
+                    $thongbao = delete_danhmuc($_GET['id']);
+                }
+                $listdanhmuc=loading_danhmuc();
+            include "danhmuc/list.php";
+            break;
+        case 'suadm':
+                if (isset($_GET['id']) && $_GET['id']>0) {
+                    $dm=load1_danhmuc($_GET['id']);
+                }
+            include "danhmuc/update.php";
+            break;    
+        case 'updatedm':
+                if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+                    $tenloai = $_POST['tenloai'];
+                    $id = $_POST['id'];
+                    update_danhmuc($id, $tenloai);
+                    $thongbao = "Cập Nhật thành công";
+                }
+                $listdanhmuc = loading_danhmuc();
+            include "danhmuc/list.php";
+            break;
         default:
         include "home.php";
         break;
