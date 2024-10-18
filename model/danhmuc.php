@@ -24,15 +24,16 @@ function delete_danhmuc($id){
     }
 }
 
-function load1_danhmuc($iddm) {
-    $sql = "SELECT * FROM danhmuc WHERE id = " . intval($iddm);
-    $iddm = pdo_query_one($sql);
-    return $iddm;
+function load1_danhmuc($id) {
+    $sql = "SELECT * FROM danhmuc WHERE id = " . $id;
+    $dm = pdo_query_one($sql);
+    return $dm;
 }
 
 
-function update_danhmuc($id,$tenloai){
-    $sql="UPDATE danhmuc SET  name= :name WHERE id= :$id";
-    pdo_execute($sql);
+function update_danhmuc($id, $tenloai) {
+    $sql = "UPDATE danhmuc SET name = :name where id = " . $id;
+    return pdo_execute($sql);
 }
+
 ?>

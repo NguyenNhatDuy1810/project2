@@ -23,7 +23,7 @@
                 <form action="index.php?act=updatedm" method="post" class="mt-4">
                     <div class="mb-3">
                         <label for="maloai" class="form-label">Mã Loại</label>
-                        <input type="text" name="maloai" id="maloai" class="form-control" value="<?php if (isset($id)) echo $id;?>" disabled>
+                        <input type="text" name="maloai" id="maloai" class="form-control" value="<?php if (isset($id)) echo $id;?>" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="tenloai" class="form-label">Tên Loại</label>

@@ -21,6 +21,7 @@ if (isset($_GET['act'])) {
                 insert_danhmuc($tenloai);
                 $thongbao = "Thêm thành công";               
             } 
+            $listdanhmuc= loading_danhmuc();
             include "danhmuc/add.php";
             break;
         case 'xoadm':
@@ -37,13 +38,13 @@ if (isset($_GET['act'])) {
             include "danhmuc/update.php";
             break;    
         case 'updatedm':
-                if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
-                    $tenloai = $_POST['tenloai'];
-                    $id = $_POST['id'];
-                    update_danhmuc($id, $tenloai);
-                    $thongbao = "Cập Nhật thành công";
-                }
-                $listdanhmuc = loading_danhmuc();
+         if (isset($_POST['capnhat']) && $_POST['capnhat']) {
+            $tenloai = $_POST['tenloai'];
+            $id = $_POST['id'];
+            update_danhmuc($id,$tenloai);
+            $thongbao = "Cập Nhật Thành Công";
+             }
+            $listdanhmuc = loading_danhmuc();
             include "danhmuc/list.php";
             break;
         default:

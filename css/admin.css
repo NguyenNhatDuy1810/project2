@@ -129,3 +129,6 @@ footer {
     color: #007bff; 
 }
 
+.alert alert-info{
+    flex: 1;
+}
