@@ -1,3 +1,4 @@
+/* Reset và các cài đặt mặc định */
 html, body {
     margin: 0;
     padding: 0;
@@ -7,37 +8,92 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
+    color: #ffffff;
 }
 
-main {
-    flex: 1; /* Đẩy footer xuống cuối */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
 
+/* Navbar và các thành phần chính trong dark mode */
+.navbar.dark-mode,
+.bg-body-tertiary.dark-mode {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+.navbar.dark-mode a.nav-link,
+.navbar.dark-mode a.navbar-brand,
+.navbar.dark-mode .form-check-label {
+    color: #ffffff !important;
+}
+
+.main-content.dark-mode, 
+.footer-container.dark-mode {
+    background-color: #222222;
+    color: #cccccc;
+}
+
+/* Dark mode cho footer */
+footer.dark-mode {
+    background-color: #222222;
+    color: #cccccc;
+}
+
+.footer-container p,
+.footer-container h3,
+.footer-container ul li a {
+    color: #ccc;
+}
+
+.footer-container.dark-mode a {
+    color: #bbbbbb;
+}
+
+.footer-container.dark-mode a:hover {
+    color: #ffffff;
+}
+
+.footer-container.dark-mode i {
+    color: #bbbbbb;
+}
+
+/* Footer mặc định */
 footer {
-    background-color: #f8f9fa;
+    background-color: #fffefe;
     padding: 20px 0;
     text-align: center;
     font-family: Arial, sans-serif;
     width: 100%;
 }
 
-footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
 .footer-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     max-width: 1200px;
     margin: 0 auto;
+    color: #ccc;
 }
 
 .footer-about, .footer-links, .footer-social {
     flex: 1;
     padding: 0 15px;
+    min-width: 200px;
+}
+
+.footer-container p {
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-container.dark-mode p {
+    color: #000000;
 }
 
 .footer-about h3, .footer-links h3, .footer-social h3 {
@@ -82,12 +138,160 @@ footer {
 }
 
 .footer-social ul li a i {
-    font-size: 24px; /* Kích thước icon */
-    color: #333; /* Màu icon */
+    font-size: 24px;
+    color: #000000;
     transition: color 0.3s;
 }
 
 .footer-social ul li a i:hover {
-    color: #007bff; /* Màu khi hover */
+    color: #007bff;
 }
 
+/* BACKGROUND */
+.w3l-main-slider .banner-view {
+    background: url(../images/bgshop.jpg) no-repeat center;
+    background-size: cover;
+    z-index: 0;
+    position: relative;
+    display: grid;
+    align-items: center;
+    min-height: 720px;
+}
+
+.w3l-main-slider .banner-info {
+    padding: 5em 0 0;
+    max-width: 400px;
+}
+
+/* Bộ sưu tập sản phẩm */
+.collection {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.collection-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.collection-header nav a {
+    margin-right: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.collection-header button {
+    padding: 8px 16px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.collection-header button:hover {
+    background-color: #555;
+}
+
+.product-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.product {
+    width: 180px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.select-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #654321;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.select-btn:hover {
+    background-color: #4b301b;
+}
+
+.product h2 {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .product {
+    background-color: #333;
+    color: #ccc;
+    border: 1px solid #555;
+}
+
+body.dark-mode .product h2,
+body.dark-mode .product p {
+    color: #ccc;
+}
+
+body.dark-mode .select-btn {
+    background-color: #555;
+    color: #ffffff;
+}
+
+body.dark-mode .select-btn:hover {
+    background-color: #777;
+}
+
+body.dark-mode .collection-header button {
+    background-color: #555;
+    color: #ffffff;
+    border: 1px solid #777;
+}
+
+body.dark-mode .collection-header button:hover {
+    background-color: #777;
+}

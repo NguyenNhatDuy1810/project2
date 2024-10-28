@@ -12,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
-    <a class="navbar-brand" href="index.php?act=return">CHILLIES</a>
+    <a class="navbar-brand" href="index.php?act=return">CHILLIES STORE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,5 +47,13 @@
         </li>
       </ul>
     </div>
+    <!-- Chuyển đổi chế độ sáng/tối -->
+    <div class="form-check form-switch ms-3">
+      <input class="form-check-input" type="checkbox" id="themeSwitch">
+      <label class="form-check-label" for="themeSwitch">
+        <i class="bi bi-brightness-high-fill"></i> <i class="bi bi-moon-fill"></i>
+      </label>
+    </div>
   </div>
 </nav>
+

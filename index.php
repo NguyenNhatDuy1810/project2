@@ -11,7 +11,7 @@ session_start();
                 header("Location: index.php");
                 exit();
             case 'login':
-                header("Location: https://www.youtube.com/watch?v=WyhoZAWlnUg");
+                header("Location: login/login.php");
                 exit();
             case 'admin':
                 header("Location: admin/index.php");

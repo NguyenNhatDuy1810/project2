@@ -10,7 +10,6 @@ if (isset($_GET['act'])) {
         case 'return':
             header("Location: index.php");
             exit();
-            break;
         case 'listdm':
             $listdanhmuc=loading_danhmuc();
             include "danhmuc/list.php";
@@ -38,15 +37,18 @@ if (isset($_GET['act'])) {
             include "danhmuc/update.php";
             break;    
         case 'updatedm':
-         if (isset($_POST['capnhat']) && $_POST['capnhat']) {
-            $tenloai = $_POST['tenloai'];
-            $id = $_POST['id'];
-            update_danhmuc($id,$tenloai);
-            $thongbao = "Cập Nhật Thành Công";
-             }
+         if (isset($_POST['capnhat'])&&($_POST['capnhat'])) {
+            $tenloai=$_POST['tenloai'];
+            $id=$_POST['id'];
+            update_danhmuc($tenloai,$id);
+            $thongbao="Cập nhật thành công";
+         }
             $listdanhmuc = loading_danhmuc();
             include "danhmuc/list.php";
             break;
+        case 'back':
+            Header("Location: index.php");
+            exit();
         default:
         include "home.php";
         break;
