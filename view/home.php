@@ -16,37 +16,35 @@
             </div>
         </div>
     </section>
-<?php
-    include "slide.php";
-?>
- <section class="collection">
+    <?php
+        include "slide.php";
+    ?>
+    <section class="collection">
         <div class="collection-header">
             <h1>CHILLIES STORE</h1>
             <nav>
-                <a href="#">Áo</a>
-                <a href="#">Quần</a>
-                <a href="#">Giày dép</a>
-                <a href="#">Phụ kiện</a>
-                <a href="#">Shopee</a>
-                <a href="#">BIG SALE</a>
+                <a href="index.php?act=spao">Áo</a>
+                <a href="index.php?act=spquan">Quần</a>
+                <a href="index.php?act=spgiay">Giày dép</a>
+                <a href="index.php?act=sppk">Phụ kiện</a>
+                <a href="https://www.facebook.com/emdii181004">Fanpage</a>
+                <a href="index.php?act=spsale">BIG SALE</a>
                 <button>XEM TẤT CẢ</button>
             </nav>
         </div>
         <div class="product-list">
             <div class="product">
                 <img src="./images/bgshop2.jpg" alt="Áo Phông Chữ">
-                <!-- <button class="select-btn">CHỌN SẢN PHẨM</button> -->
+                <button class="select-btn">CHỌN SẢN PHẨM</button>
                 <h2>Áo Phông Chữ</h2>
                 <p>320.000₫</p>
             </div>
             <div class="product">
                 <img src="./images/bgshop2.jpg" alt="Áo Phông Drew">
-                <!-- <button class="select-btn">CHỌN SẢN PHẨM</button> -->
+                <button class="select-btn">CHỌN SẢN PHẨM</button>
                 <h2>Áo Phông Drew</h2>
                 <p>400.000₫</p>
             </div>
-          
         </div>
     </section>
 </main>
-

@@ -47,13 +47,13 @@
         </li>
       </ul>
     </div>
-    <!-- Chuyển đổi chế độ sáng/tối -->
+    <!-- Chuyển đổi chế độ sáng/tối
     <div class="form-check form-switch ms-3">
       <input class="form-check-input" type="checkbox" id="themeSwitch">
       <label class="form-check-label" for="themeSwitch">
         <i class="bi bi-brightness-high-fill"></i> <i class="bi bi-moon-fill"></i>
       </label>
-    </div>
+    </div> -->
   </div>
 </nav>
 

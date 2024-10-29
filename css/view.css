@@ -12,52 +12,17 @@ body {
     color: #ffffff;
 }
 
-body.dark-mode {
-    background-color: #121212;
+/* Navbar và các thành phần chính */
+.navbar,
+.bg-body-tertiary {
+    background-color: #333333;
     color: #ffffff;
 }
 
-/* Navbar và các thành phần chính trong dark mode */
-.navbar.dark-mode,
-.bg-body-tertiary.dark-mode {
-    background-color: #333333 !important;
-    color: #ffffff !important;
-}
-
-.navbar.dark-mode a.nav-link,
-.navbar.dark-mode a.navbar-brand,
-.navbar.dark-mode .form-check-label {
-    color: #ffffff !important;
-}
-
-.main-content.dark-mode, 
-.footer-container.dark-mode {
-    background-color: #222222;
-    color: #cccccc;
-}
-
-/* Dark mode cho footer */
-footer.dark-mode {
-    background-color: #222222;
-    color: #cccccc;
-}
-
-.footer-container p,
-.footer-container h3,
-.footer-container ul li a {
-    color: #ccc;
-}
-
-.footer-container.dark-mode a {
-    color: #bbbbbb;
-}
-
-.footer-container.dark-mode a:hover {
+.navbar a.nav-link,
+.navbar a.navbar-brand,
+.navbar .form-check-label {
     color: #ffffff;
-}
-
-.footer-container.dark-mode i {
-    color: #bbbbbb;
 }
 
 /* Footer mặc định */
@@ -90,10 +55,6 @@ footer {
     padding-top: 20px;
     color: #333;
     font-size: 14px;
-}
-
-.footer-container.dark-mode p {
-    color: #000000;
 }
 
 .footer-about h3, .footer-links h3, .footer-social h3 {
@@ -235,7 +196,8 @@ footer {
 
 .select-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 80px; /* Chỉnh khoảng cách so với đáy để nằm giữa hình và chữ */
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #654321;
@@ -264,34 +226,4 @@ footer {
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
-}
-
-body.dark-mode .product {
-    background-color: #333;
-    color: #ccc;
-    border: 1px solid #555;
-}
-
-body.dark-mode .product h2,
-body.dark-mode .product p {
-    color: #ccc;
-}
-
-body.dark-mode .select-btn {
-    background-color: #555;
-    color: #ffffff;
-}
-
-body.dark-mode .select-btn:hover {
-    background-color: #777;
-}
-
-body.dark-mode .collection-header button {
-    background-color: #555;
-    color: #ffffff;
-    border: 1px solid #777;
-}
-
-body.dark-mode .collection-header button:hover {
-    background-color: #777;
 }
