@@ -235,7 +235,8 @@ footer {
 
 .select-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 80px;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #654321;
