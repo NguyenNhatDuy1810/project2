@@ -31,8 +31,8 @@ function load1_danhmuc($id) {
 }
 
 
-function update_danhmuc($id, $tenloai) {
-    $sql = "UPDATE danhmuc SET name = :name where id = " . $id;
+function update_danhmuc($id,$tenloai) {
+    $sql = "UPDATE danhmuc SET name = '".$tenloai."' WHERE id=".$id;    
     return pdo_execute($sql);
 }
 

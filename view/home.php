@@ -28,7 +28,7 @@
                 <a href="index.php?act=spgiay">Giày dép</a>
                 <a href="index.php?act=sppk">Phụ kiện</a>
                 <a href="https://www.facebook.com/emdii181004">Fanpage</a>
-                <a href="index.php?act=spsale">BIG SALE</a>
+                <!-- <a href="index.php?act=spsale">BIG SALE</a> -->
                 <button>XEM TẤT CẢ</button>
             </nav>
         </div>
@@ -38,6 +38,30 @@
                 <button class="select-btn">CHỌN SẢN PHẨM</button>
                 <h2>Áo Phông Chữ</h2>
                 <p>320.000₫</p>
+            </div>
+            <div class="product">
+                <img src="./images/bgshop2.jpg" alt="Áo Phông Drew">
+                <button class="select-btn">CHỌN SẢN PHẨM</button>
+                <h2>Áo Phông Drew</h2>
+                <p>400.000₫</p>
+            </div>
+            <div class="product">
+                <img src="./images/bgshop2.jpg" alt="Áo Phông Drew">
+                <button class="select-btn">CHỌN SẢN PHẨM</button>
+                <h2>Áo Phông Drew</h2>
+                <p>400.000₫</p>
+            </div>
+            <div class="product">
+                <img src="./images/bgshop2.jpg" alt="Áo Phông Drew">
+                <button class="select-btn">CHỌN SẢN PHẨM</button>
+                <h2>Áo Phông Drew</h2>
+                <p>400.000₫</p>
+            </div>
+            <div class="product">
+                <img src="./images/bgshop2.jpg" alt="Áo Phông Drew">
+                <button class="select-btn">CHỌN SẢN PHẨM</button>
+                <h2>Áo Phông Drew</h2>
+                <p>400.000₫</p>
             </div>
             <div class="product">
                 <img src="./images/bgshop2.jpg" alt="Áo Phông Drew">

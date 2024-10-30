@@ -31,7 +31,7 @@
           <?php echo htmlspecialchars($_SESSION['user']['name']); ?>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.php?act=listdm">Tài Khoản</a></li>
+            <li><a class="dropdown-item" href="index.php?act=login">Tài Khoản</a></li>
             <li><a class="dropdown-item" href="#">Thông tin</a></li>
             <li><hr class="dropdown-divider"></li>
             <?php if($_SESSION['user']['role'] == 1): ?>

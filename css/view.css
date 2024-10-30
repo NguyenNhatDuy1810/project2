@@ -22,7 +22,8 @@ body {
 .navbar a.nav-link,
 .navbar a.navbar-brand,
 .navbar .form-check-label {
-    color: #ffffff;
+    color: #121212;
+    font-weight: bold;
 }
 
 /* Footer mặc định */
