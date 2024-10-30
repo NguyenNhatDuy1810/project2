@@ -197,7 +197,11 @@ footer {
 
 .select-btn {
     position: absolute;
+<<<<<<< HEAD
     bottom: 80px; /* Chỉnh khoảng cách so với đáy để nằm giữa hình và chữ */
+=======
+    bottom: 80px;
+>>>>>>> 5c2f4c2b6292ad691a97e4396a581916720694cd
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
