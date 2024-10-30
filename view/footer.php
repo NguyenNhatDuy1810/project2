@@ -23,18 +23,5 @@
 
  <p>© 2024 Emdiisuy with love</p>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const themeSwitch = document.getElementById('themeSwitch');
-    themeSwitch.addEventListener('change', function() {
-        document.body.classList.toggle('dark-mode', this.checked);
-        document.querySelector('.navbar').classList.toggle('dark-mode', this.checked);
-        document.querySelector('.bg-body-tertiary').classList.toggle('dark-mode', this.checked);
-        document.querySelector('.main-content').classList.toggle('dark-mode', this.checked);
-        document.querySelector('.footer-container').classList.toggle('dark-mode', this.checked);
-    });
-});
-
-</script>
 </body>
 </html>
