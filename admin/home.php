@@ -5,7 +5,7 @@
                 <div class="card text-white bg-primary">
                     <div class="card-body">
                         <h5 class="card-title">Sản phẩm</h5>
-                        <p class="card-text">200 sản phẩm</p>
+                        <p class="card-text"><?php countsp(); ?></p>
                     </div>
                 </div>
             </div>

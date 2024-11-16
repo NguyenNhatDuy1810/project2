@@ -30,7 +30,7 @@
             <li><a class="dropdown-item" href="index.php?act=listsp">Quản Lý Sản Phẩm</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php?act=listuser">Quản Lý Người Dùng</a></li>
-            <li><a href="index.php?act=tksp" class="dropdown-item">Thống Kê Sản Phẩm</a></li>
+            <li><a href="index.php?act=qlbl" class="dropdown-item">Quản Lý Bình Luận</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a href="index.php?act=back" class="dropdown-item">Trờ Về Trang Người Dùng</a></li>
           </ul>

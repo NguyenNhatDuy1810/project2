@@ -40,8 +40,8 @@
                                             <td>'.$id.'</td>
                                             <td>'.$name.'</td>
                                             <td>
-                                                <a href="'.$suadm.'" class="btn btn-primary btn-sm">Sửa</a>
-                                                <a href="'.$xoadm.'" class="btn btn-primary btn-sm">Xóa</a>
+                                                <a href="'.$suadm.'" class="btn btn-outline-success btn-sm">Sửa</a>
+                                                <a href="'.$xoadm.'" class="btn btn-outline-danger btn-sm">Xóa</a>
                                             </td>
                                         </tr>';
                                     }
@@ -53,9 +53,9 @@
                         </table>
                     </div>
                     <div class="d-flex justify-content-between mt-3">
-                        <button type="button" class="btn btn-primary" onclick="selectALL()">Chọn Tất Cả</button>
-                        <button type="button" class="btn btn-primary" onclick="deselectALL()">Bỏ Chọn Tất Cả</button>
-                        <button type="button" class="btn btn-primary" onclick="deleteselectALL()">Xóa Các Mục Đã Chọn</button>
+                        <button type="button" class="btn btn-danger" onclick="selectALL()">Chọn Tất Cả</button>
+                        <button type="button" class="btn btn-success" onclick="deselectALL()">Bỏ Chọn Tất Cả</button>
+                        <button type="button" class="btn btn-warning" onclick="deleteselectALL()">Xóa Các Mục Đã Chọn</button>
                         <a href="index.php?act=adddm" class="btn btn-primary">Nhập Thêm</a>
                     </div>
                 </form>
