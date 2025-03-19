@@ -1,4 +1,7 @@
 <?php
+include "home.php";
+?>
+<?php
 if(is_array($sp)){
     extract($sp);
 }
@@ -9,19 +12,8 @@ if (file_exists($hinhPath)) {
     $hinhHTML = "<span class='text-muted'>Không có ảnh minh họa</span>";
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../../css/sanphamadmin.css">
-    <title>Cập Nhật Sản Phẩm</title>
-</head>
-<body>
-<div class="container mt-4">
+
+<div class="container">
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
             <h2 class="h4 mb-0">Cập nhật sản phẩm</h2>
@@ -51,10 +43,25 @@ if (file_exists($hinhPath)) {
                 </div>
                 
                 <div class="mb-3">
+                    <label for="gianhapsp" class="form-label">Giá Nhập</label>
+                    <input type="text" class="form-control" name="gianhapsp" value="<?=$import_price?>">
+                </div>
+
+                <div class="mb-3">
                     <label for="giasp" class="form-label">Giá</label>
-                    <input type="text" class="form-control" name="giasp" value="<?=number_format($price,0,'.','.')?>">
+                    <input type="text" class="form-control" name="giasp" value="<?=$price?>">
                 </div>
                 
+                 <div class="mb-3">
+                    <label for="gia_giam" class="form-label">Giảm giá(%) <span class="text-danger">*</span></label>
+                    <input type="number" min="0"  step="1" class="form-control" id="gia_giam" name="gia_giam" placeholder="Giá Giảm" required min="0">
+                </div>
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Số lượng</label>
+                    <input type="text" class="form-control" id="quantity" name="quantity" value="<?=$quantity?>">
+                </div>
+
                 <div class="mb-3">
                     <label for="hinh" class="form-label">Hình</label>
                     <input type="file" class="form-control" name="hinh">
@@ -65,7 +72,7 @@ if (file_exists($hinhPath)) {
                     <label for="mota" class="form-label">Mô tả</label>
                     <textarea class="form-control" id="mota" name="mota" rows="3"><?=$mota?></textarea>
                 </div>
-                
+
                 <input type="hidden" name="id" value="<?=$id?>">
                 
                 <div class="d-flex justify-content-between mt-4">
@@ -73,13 +80,15 @@ if (file_exists($hinhPath)) {
                     <button type="reset" class="btn btn-secondary">Nhập lại</button>
                     <a href="index.php?act=listsp" class="btn btn-outline-primary">Danh Sách</a>
                 </div>
-                <div class="thongbao">
+            
+                <div class="thongbao mt-4">
                 <?php
                 if(isset($thongbao) && $thongbao != "") {
                     echo '<div class="alert alert-info mt-3">'.$thongbao.'</div>';
                 }
                 ?>
                 </div>
+        
             </form>
         </div>
     </div>

@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Sách Loại Hàng</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/admin.css">
-</head>
-<body>
-<main>
+<?php
+include "home.php";
+?>
 <div class="container">
     <div class="col-12">
         <div class="row mb-4">
@@ -52,46 +42,48 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="d-flex justify-content-between mt-3">
-                        <button type="button" class="btn btn-danger" onclick="selectALL()">Chọn Tất Cả</button>
-                        <button type="button" class="btn btn-success" onclick="deselectALL()">Bỏ Chọn Tất Cả</button>
-                        <button type="button" class="btn btn-warning" onclick="deleteselectALL()">Xóa Các Mục Đã Chọn</button>
-                        <a href="index.php?act=adddm" class="btn btn-primary">Nhập Thêm</a>
+                    <div class="col-12 mt-3">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary" onclick="selectAll()">Chọn tất cả</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary" onclick="deselectAll()">Bỏ chọn tất cả</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-danger" onclick="deleteSelected1()">Xóa các mục đã Chọn</button>
+                            </div>
+                            <div>
+                                <a href="index.php?act=adddm" class="btn btn-success">Nhập thêm</a>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
-<script>
-    function selectAll() {
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = true);
-    }
-
-    function deselectAll() {
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
-    }
-
-    function deleteSelected() {
-        const selected = [];
-        document.querySelectorAll('input[name="selected[]"]:checked').forEach(checkbox => {
-            selected.push(checkbox.value);
-        });
-        if (selected.length > 0) {
-            if (confirm('Bạn có chắc chắn muốn xóa các mục đã chọn không?')) {
-                document.getElementById('danhmucForm').submit();
-            }
-        } else {
-            alert('Vui lòng chọn ít nhất một mục để xóa.');
-        }
-    }
-</script>
-<?php if (isset($thongbao) && $thongbao !=""): ?>
-    <div class="alert alert-info">
-        <?php echo $thongbao; ?>
+   
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <?php echo isset($thongbao) ? $thongbao : ''; ?>
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
-<?php endif; ?>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var toastEl = document.getElementById('liveToast');
+        if (toastEl && toastEl.querySelector('.toast-body').textContent.trim() !== '') {
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+    });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</main>
-</body>
-</html>
+</div>
+

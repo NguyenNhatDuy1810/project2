@@ -13,7 +13,7 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form action="index.php?act=dangky" method="POST">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -22,14 +22,16 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <input type="text" name="name" id="name" placeholder="Name">
+                <input type="text" name="user" id="user" placeholder="User Name">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="password" name="pass" id="pass" placeholder="Password">
+                <input type="password" name="xnpass" id="xnpass" class="form-control" placeholder="Confirm Password">
+                <button type="submit" name="dangky" class="btn btn-primary">Sign up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="index.php?act=dangnhap" method="post">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -38,11 +40,12 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <input type="text" name="user" id="user"  placeholder="User Name">
+                <input type="password" name="pass" id="pass" placeholder="Password">
+                <a href="index.php?act=quenmatkhau">Forget Your Password?</a>
+                <button type="submit" name="dangnhap" class="btn btn-primary">Sign In</button>
             </form>
+
         </div>
         <div class="toggle-container">
             <div class="toggle">
@@ -58,8 +61,16 @@
                 </div>
             </div>
         </div>
+            <?php 
+                if (isset($thongbao) && !empty($thongbao)) : ?>
+                    <div id="popup-thongbao" class="popup-thongbao">
+                        <div class="popup-content">
+                            <span id="close-popup">&times;</span>
+                            <p><?php echo htmlspecialchars($thongbao); ?></p>
+                        </div>
+                    </div>
+            <?php endif; ?>
     </div>
-
     <script src="../js/taikhoan.js"></script>
 </body>
 

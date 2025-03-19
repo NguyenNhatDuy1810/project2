@@ -1,21 +1,7 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Sách Loại Hàng</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../../css/sanphamadmin.css">
-
-</head>
-<body>
-    
-</body>
-</html>
-<div class="container mt-5">
+<?php
+include "home.php";
+?>
+<div class="container">
     <div class="row">
         <div class="col-12">
             <div class="row frmtitle mb-4">
@@ -45,11 +31,14 @@
                                         <th>#</th>
                                         <th>MÃ SẢN PHẨM</th>
                                         <th>TÊN SẢN PHẨM</th>
+                                        <th>GIÁ NHẬP SẢN PHẨM</th>
                                         <th>GIÁ SẢN PHẨM</th>
+                                        <th>GIẢM GIÁ(%)</th>
                                         <th>HÌNH ẢNH</th>
                                         <th>MÔ TẢ</th>
                                         <th>LƯỢT XEM</th>
-                                        <th>Thao tác</th>
+                                        <th>SỐ LƯỢNG</th>
+                                        <th>THAO TÁC</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,14 +54,22 @@
                                             } else {
                                                 $hinh="không có ảnh minh họa";
                                             }
+                                                if (isset($discount)&&$discount!=0) {
+                                                    $price=$price*(1-$discount/100);
+                                                }else {
+                                                    $price;
+                                                }
                                             echo '<tr>
                                                     <td><input type="checkbox" name="selected[]" value="'.$id.'"></td>
                                                     <td>'.$id.'</td>
                                                     <td>'.$name.'</td>
-                                                    <td>'.number_format($price,0,'.','.').'</td>
+                                                    <td>'.number_format($import_price,0).'</td>
+                                                    <td>'.number_format($price,0).'</td>
+                                                    <td>'.number_format($discount,0).'%</td> 
                                                     <td>'.$hinh.'</td>
                                                     <td>'.$mota.'</td>
                                                     <td>'.number_format($view,0,'.','.').'</td>
+                                                    <td>'.$quantity.'</td>
                                                     <td>
                                                         <a href="'.$suasp.'" class="btn btn-primary btn-sm">Sửa</a>
                                                         <a href="'.$xoasp.'" class="btn btn-danger btn-sm">Xóa</a>
@@ -92,13 +89,13 @@
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-primary" onclick="selectAll()">Chọn tất cả</button>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <button type="button" class="btn btn-primary" onclick="deselectAll()">Bỏ chọn tất cả</button>
                             </div>
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-danger" onclick="deleteSelected1()">Xóa các mục đã Chọn</button>
                             </div>
-                            <div class="col-md-3">
+                            <div >
                                 <a href="index.php?act=addsp" class="btn btn-success">Nhập thêm</a>
                             </div>
                         </div>
@@ -107,13 +104,28 @@
             </form>
         </div>
     </div>
-</div>
-<script src="../../js/sanphamadmin.js"></script>
-<?php if (isset($thongbao) && $thongbao != ""): ?>
-    <div class="alert alert-info">
-        <?php echo $thongbao; ?>
+
+
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <?php echo isset($thongbao) ? $thongbao : ''; ?>
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
-<?php endif; ?>
+</div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var toastEl = document.getElementById('liveToast');
+        if (toastEl && toastEl.querySelector('.toast-body').textContent.trim() !== '') {
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+    });
+</script>
 
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>

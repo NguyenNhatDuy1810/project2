@@ -1,4 +1,6 @@
-
+.wrapper{
+    display: flex;
+}
     /* Căn giữa phần tiêu đề */
     h1.text-center {
         font-size: 2rem;

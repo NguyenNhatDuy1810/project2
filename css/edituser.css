@@ -1,0 +1,37 @@
+body {
+    /* Nền gradient hiện đại */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  .form-control {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ffc107;
+  }
+  label {
+    font-weight: 600;
+  }
+  .btn-primary {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    font-weight: 600;
+  }
+  .btn-primary:hover {
+    background-color: #e0a800;
+  }

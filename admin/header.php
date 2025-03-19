@@ -1,42 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Dashboard</title>  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="../css/adminlte.min.css">     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <link rel="stylesheet" href="../css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/view.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container">
-    <a class="navbar-brand" href="index.php?act=return">CHILLIES STORE</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dashboard
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.php?act=listdm">Quản Lý Danh Mục</a></li>
-            <li><a class="dropdown-item" href="index.php?act=listsp">Quản Lý Sản Phẩm</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="index.php?act=listuser">Quản Lý Người Dùng</a></li>
-            <li><a href="index.php?act=qlbl" class="dropdown-item">Quản Lý Bình Luận</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a href="index.php?act=back" class="dropdown-item">Trờ Về Trang Người Dùng</a></li>
-          </ul>
-        </li>
-      </ul>
+   
+    <div class="sidebar">
+    <a href="index.php?act=backadmin"><h4>Chillies Store</h4></a>
+        <p>Nguyễn Nhật Duy 1</p>
+        <a href="index.php?act=backadmin" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="index.php?act=listdm"><i class="fa-solid fa-list"></i> Danh Mục</a>
+        <a href="index.php?act=listsp"><i class="fa-solid fa-box"></i> Sản Phẩm</a>
+        <a href="index.php?act=dskh"><i class="fa-solid fa-user"></i> Người Dùng</a>
+        <a href="index.php?act=dsbl"><i class="fas fa-comments"></i> Bình Luận</a>
+        <a href="index.php?act=listbill"><i class="fas fa-chart-bar"></i> Danh Sách Đơn Hàng</a>
+        <a href="index.php?act=back"><i class="fa-solid fa-tree"></i> Về Trang User</a>
+        <a href="index.php?act=dangxuat"><i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất</a>
     </div>
-  </div>
-</nav>
-
+    
+</body>
+</html>

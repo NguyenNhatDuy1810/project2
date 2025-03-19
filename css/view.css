@@ -1,159 +1,162 @@
-/* Reset và các cài đặt mặc định */
+/* Reset và cài đặt mặc định */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
-
-body {
+  }
+  
+  body {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    color: #ffffff;
-}
-
-/* Navbar và các thành phần chính */
-.navbar,
-.bg-body-tertiary {
+   
+  }
+  
+  /* Navbar và các thành phần chính */
+  .navbar,
+  .bg-body-tertiary {
     background-color: #333333;
     color: #ffffff;
-}
-
-.navbar a.nav-link,
-.navbar a.navbar-brand,
-.navbar .form-check-label {
+  }
+  
+  .navbar a.nav-link,
+  .navbar a.navbar-brand,
+  .navbar .form-check-label {
     color: #121212;
+  }
+  .navbar a.navbar-brand {
     font-weight: bold;
-}
-
-/* Footer mặc định */
-footer {
+  }
+  
+  /* Main content */
+  .main-content {
+    width: 100%;
+    float: none;
+  }
+  
+  /* Footer */
+  footer {
     background-color: #fffefe;
     padding: 20px 0;
     text-align: center;
     font-family: Arial, sans-serif;
     width: 100%;
-}
-
-.footer-container {
+  }
+  .footer-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: 1200px;
     margin: 0 auto;
     color: #ccc;
-}
-
-.footer-about, .footer-links, .footer-social {
+  }
+  .footer-about, .footer-links, .footer-social {
     flex: 1;
     padding: 0 15px;
     min-width: 200px;
-}
-
-.footer-container p {
+  }
+  .footer-container p {
     text-align: center;
     width: 100%;
     padding-top: 20px;
     color: #333;
     font-size: 14px;
-}
-
-.footer-about h3, .footer-links h3, .footer-social h3 {
+  }
+  .footer-about h3, .footer-links h3, .footer-social h3 {
     margin-bottom: 10px;
     font-size: 18px;
     color: #333;
-}
-
-.footer-about p {
+  }
+  .footer-about p {
     font-size: 14px;
     color: #555;
-}
-
-.footer-links ul {
+  }
+  .footer-links ul {
     list-style: none;
     padding: 0;
-}
-
-.footer-links ul li {
+  }
+  .footer-links ul li {
     margin: 5px 0;
-}
-
-.footer-links ul li a {
+  }
+  .footer-links ul li a {
     text-decoration: none;
     color: #007bff;
     font-size: 14px;
-}
-
-.footer-links ul li a:hover {
+  }
+  .footer-links ul li a:hover {
     color: #0056b3;
-}
-
-.footer-social ul {
+  }
+  .footer-social ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
-}
-
-.footer-social ul li {
+  }
+  .footer-social ul li {
     margin: 0 10px;
-}
-
-.footer-social ul li a i {
+  }
+  .footer-social ul li a i {
     font-size: 24px;
     color: #000000;
     transition: color 0.3s;
-}
-
-.footer-social ul li a i:hover {
+  }
+  .footer-social ul li a i:hover {
     color: #007bff;
-}
-
-/* BACKGROUND */
-.w3l-main-slider .banner-view {
+  }
+  
+  /* BACKGROUND SLIDE */
+  .w3l-main-slider .banner-view {
     background: url(../images/bgshop.jpg) no-repeat center;
     background-size: cover;
-    z-index: 0;
     position: relative;
     display: grid;
     align-items: center;
     min-height: 720px;
-}
-
-.w3l-main-slider .banner-info {
+  }
+  .w3l-main-slider .banner-info {
     padding: 5em 0 0;
     max-width: 400px;
-}
-
-/* Bộ sưu tập sản phẩm */
-.collection {
+    color:#ffffff;
+  }
+  
+  /* Bộ sưu tập sản phẩm */
+  .collection {
     max-width: 1200px;
     width: 100%;
     padding: 20px;
     margin: 0 auto;
-}
-
-.collection-header {
+  }
+  .collection-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-}
-
-.collection-header h1 {
-    font-size: 24px;
+    justify-content: space-between;
+    border-bottom: 1px solid #9d9d9d; 
+    padding-bottom: 5px;
+  }
+  .collection-header h1 {
+    font-size: 20px;
     font-weight: bold;
+    color: #5A4226;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  .collection-header .line {
+    color: #5A4226;
+    font-size: 24px;
+    margin-right: 8px;
+  }
+  .collection-header nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .collection-header nav a {
     color: #333;
-}
-
-.collection-header nav a {
-    margin-right: 15px;
-    color: #333;
-    text-decoration: none;
     font-size: 16px;
-}
-
-.collection-header button {
+    text-decoration: none;
+  }
+  .collection-header button {
     padding: 8px 16px;
     border: 1px solid #333;
     background-color: #333;
@@ -161,43 +164,57 @@ footer {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.collection-header button:hover {
+  }
+  .collection-header button:hover {
     background-color: #555;
-}
-
-.product-list {
+  }
+  
+  /* Product */
+  .product-list {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     padding: 20px 0;
-}
-
-.product {
-    width: 180px;
+  }
+  .product {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    justify-content: space-between;
     position: relative;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     background-color: #fff;
-}
-
-.product:hover {
+  }
+  .product:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.product img {
+  }
+  .product-img {
     width: 100%;
-    border-bottom: 1px solid #ddd;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+  }
+  .product a {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(133, 109, 28);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; /* Thêm hiệu ứng chuyển đổi màu */
 }
 
-.select-btn {
+.product a:hover {
+    color: rgb(200, 150, 50); /* Màu khi hover */
+}
+  .select-btn {
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -210,21 +227,185 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.select-btn:hover {
+  }
+  .select-btn:hover {
     background-color: #4b301b;
-}
-
-.product h2 {
+  }
+  .product h2 {
     font-size: 16px;
     color: #333;
     margin: 10px 0;
-}
-
-.product p {
-    font-size: 16px;
+  }
+  .product p {
+    font-size: 14px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 15px;
-}
+    bottom: 15px;
+  }
+  
+  /* Sản phẩm chi tiết */
+  .product-detail .thumbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .product-detail .thumbs img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+  }
+  .product-detail .options button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .qty-input {
+    width: 50px;
+    text-align: center;
+  }
+  .product-detail .btn-dark {
+    background-color: #3e3e3e;
+    border: none;
+  }
+  .product-detail .btn-warning {
+    background-color: #ff9800;
+    border: none;
+  }
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d32f2f;
+  }
+  .options button.active {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Slider Navigation */
+  .slider-navigation {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .slider-navigation button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .slider-navigation button:hover {
+    background: #555;
+  }
+  
+  /* ========== Góc Tin Tức (News Section) ========== */
+  .news-section {
+    margin: 50px 0;
+    padding: 0 20px;
+  }
+  .news-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+  }
+  .news-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .news-item {
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+  .news-item:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  }
+  .news-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .news-content {
+    padding: 15px;
+    position: relative;
+  }
+  .news-date {
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  .news-date .day {
+    font-size: 1.2rem;
+    display: block;
+    font-weight: bold;
+  }
+  .news-date .month-year {
+    font-size: 0.9rem;
+  }
+  .news-title {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .news-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .news-title a:hover {
+    color: #c00;
+  }
+  .news-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* Responsive cho Góc Tin Tức */
+  @media (max-width: 1024px) {
+    .news-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .news-items {
+      grid-template-columns: 1fr;
+    }
+    .news-date {
+      top: 15px;
+      right: 15px;
+      left: auto;
+    }
+    .news-title {
+      margin-top: 15px;
+    }
+  }
+
+  /* Chi tiết sản phẩm */
+  .text-success {
+    font-size: 20px;
+    font-weight: bold;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+  }
+  .text-danger{
+    font-weight: bold;
+    font-size: 14px;
+  }
+/* .thuonghieu {
+  font-weight: bold;
+} */
