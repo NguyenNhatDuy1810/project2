@@ -23,6 +23,7 @@
         <a href="index.php?act=dskh"><i class="fa-solid fa-user"></i> Người Dùng</a>
         <a href="index.php?act=dsbl"><i class="fas fa-comments"></i> Bình Luận</a>
         <a href="index.php?act=listbill"><i class="fas fa-chart-bar"></i> Danh Sách Đơn Hàng</a>
+        <a href="index.php?act=tdt" class="small-box-footer"><i class="fas fa-dollar-sign"></i> Doanh Thu Cửa Hàng </a>
         <a href="index.php?act=back"><i class="fa-solid fa-tree"></i> Về Trang User</a>
         <a href="index.php?act=dangxuat"><i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất</a>
     </div>

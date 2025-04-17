@@ -101,11 +101,11 @@ session_start();
                     $address = $_POST['address'];
                     $tel = $_POST['phone'];
                     $email = $_POST['email'];
-                    
+                    $iduser = $_SESSION['user']['id'];
                     $ngaydathang = $_POST['ngaydathang'];
                     $totalPrice = $_POST['total-price'];
             
-                    $idbill = insertbill($name, $address, $tel, $email, $ngaydathang, $totalPrice);
+                    $idbill = insertbill($iduser, $name, $address, $tel, $email, $ngaydathang, $totalPrice);
             
                     foreach ($_SESSION['mycart'] as $cart) {
                         insert_cart($_SESSION['user']['id'], $cart[0], $cart[2], $cart[1], $cart[3], $cart[4], $cart[5], $idbill);

@@ -1,30 +1,32 @@
 <?php
-// Assuming these functions are defined elsewhere and included properly
-function insertbill($name, $address, $tel, $email, $ngaydathang, $totalPrice) {
-    $sql = "INSERT INTO bills (bill_name, bill_address, bill_tel, bill_email, ngaydathang, total)
-            VALUES ('$name', '$address', '$tel', '$email', '$ngaydathang', '$totalPrice')";
-    return pdo_execute_return_lastInsertId($sql);
+
+function insertbill($iduser, $name, $address, $tel, $email, $ngaydathang, $totalPrice) {
+    $sql = "INSERT INTO bills (iduser, bill_name, bill_address, bill_tel, bill_email, ngaydathang, total) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    return pdo_execute_return_lastInsertId($sql, $iduser, $name, $address, $tel, $email, $ngaydathang, $totalPrice);
 }
 
 function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill) {
-    $sql = "INSERT INTO cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill)
-            VALUES ('$iduser', '$idpro', '$img', '$name', '$price', '$soluong', '$thanhtien', '$idbill')";
-    return pdo_execute($sql);
+    $sql = "INSERT INTO cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    return pdo_execute($sql, $iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill);
 }
 
 function loadall_cart($idbill) {
     $sql = "SELECT * FROM cart WHERE idbill =".$idbill;
     $bill = pdo_query($sql);
-    // Kiểm tra dữ liệu
-   
     return $bill;
 }
 
 function loadall_bill($iduser) {
-   
-    $sql = "SELECT * FROM bills where 1";
-    if( $iduser>0)$sql.="AND iduser=".$iduser;
-    $sql.=" order by id desc";
+    $sql = "SELECT bills.id AS bill_id, bills.iduser, bills.bill_name, bills.bill_email, bills.bill_address, 
+                   bills.bill_tel, bills.total, bills.bill_status, bills.ngaydathang,
+                   cart.name AS product_name, cart.soluong 
+            FROM bills 
+            LEFT JOIN cart ON bills.id = cart.idbill";
+    if( $iduser>0)
+    $sql.="AND iduser=".$iduser;
+    $sql.=" order by bills.id desc";
     $listbill = pdo_query($sql);
     return $listbill;
 }
@@ -96,6 +98,43 @@ function get_order_by_id($id) {
 function update_order($id, $name, $email, $address, $tel, $total, $status) {
     $sql = "UPDATE bills SET bill_name = ?, bill_email = ?, bill_address = ?, bill_tel = ?, total = ?, bill_status = ? WHERE id = ?";
     pdo_execute($sql, $name, $email, $address, $tel, $total, $status, $id);
+}
+
+function tongdt() {
+    $sql = "SELECT SUM(cart.thanhtien - sanpham.import_price) AS Loi_Nhuan
+            FROM cart
+            JOIN sanpham ON cart.name = sanpham.name"; 
+    $result = pdo_query_one($sql);
+    return $result['Loi_Nhuan'] ?? 0;
+}
+
+function doanhthuTheoNgay() {
+    $sql = "SELECT 
+    b.ngaydathang,
+    COUNT(DISTINCT b.id) AS countdh, 
+    SUM(c.thanhtien) AS doanhthu,     
+    SUM(c.thanhtien - s.import_price * c.soluong) AS loi_nhuan 
+FROM bills b
+JOIN cart c ON b.id = c.idbill
+JOIN sanpham s ON c.idpro = s.id
+GROUP BY b.ngaydathang
+ORDER BY b.ngaydathang DESC;";
+    return pdo_query($sql); // Trả về danh sách nhiều dòng
+}
+function timKiemDonHangTheoNgay($ngay) {
+    $sql = "SELECT 
+                b.ngaydathang, 
+                COUNT(DISTINCT b.id) AS countdh, 
+                SUM(c.thanhtien) AS doanhthu,     
+                SUM(c.thanhtien - s.import_price * c.soluong) AS loi_nhuan 
+            FROM bills b
+            JOIN cart c ON b.id = c.idbill
+            JOIN sanpham s ON c.idpro = s.id
+            WHERE TRIM(b.ngaydathang) = ?
+            GROUP BY b.ngaydathang
+            ORDER BY b.ngaydathang DESC";
+    
+    return pdo_query($sql, $ngay);
 }
 
 ?>

@@ -17,7 +17,8 @@ include "home.php";
                                         <th></th>
                                         <th>ID</th>
                                         <th>THÔNG TIN KHÁCH HÀNG</th>
-                                        <th>SỐ LƯỢNG ĐƠN HÀNG</th>
+                                        <th>TÊN ĐƠN HÀNG</th> <!-- Hiển thị tên sản phẩm -->
+                                        
                                         <th>TỔNG TIỀN</th>
                                         <th>PHƯƠNG THỨC THANH TOÁN</th>
                                         <th>TRẠNG THÁI ĐƠN HÀNG</th>
@@ -26,49 +27,43 @@ include "home.php";
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    foreach ($listbill as $bill) {
-                                        extract($bill);
-                                        $kh = $bill["bill_name"] . '<br>' . $bill["bill_email"] . '<br>' . $bill["bill_address"] . '<br>' . $bill["bill_tel"];
-                                        $ttdh = get_ttdh($bill["bill_status"]);
-                                        // $pttt = get_pttt($bill["bill_pttt"]);
-                                        $countsp = loadall_cart_count($bill["id"]);
-                                        $deleteOrderUrl = "index.php?act=deleteOrder&id=" . $id;
-                                        $editOrderUrl = "index.php?act=editOrder&id=" . $id;
+                                <?php
+$last_bill_id = null; // Biến lưu bill_id của dòng trước
 
-                                        echo '<tr>
-                                                <td><input type="checkbox" name="selected[]" value="' . $id . '"></td>
-                                                <td>DH' . $bill['id'] . '</td>
-                                                <td>' . $kh . '</td>
-                                                <td>' . $countsp . '</td>
-                                                <td>' . number_format($total,0,'.','.') . '</td>
-                                               <td>Trực Tiếp</td>
-                                                <td>' . $ttdh . '</td>
-                                                <td>' . $ngaydathang . '</td>
-                                                <td>
-                                                    <a href="' . $editOrderUrl . '" class="btn btn-warning btn-sm">Sửa</a>
-                                                    <a href="' . $deleteOrderUrl . '" class="btn btn-danger btn-sm">Xóa</a>
-                                                </td>
-                                            </tr>';
-                                    }
-                                    ?>
+foreach ($listbill as $bill) {
+    extract($bill);
+    $kh = $bill["bill_name"] . '<br>' . $bill["bill_email"] . '<br>' . $bill["bill_address"] . '<br>' . $bill["bill_tel"];
+    $ttdh = get_ttdh($bill["bill_status"]);
+
+    // Nếu idbill trùng với dòng trước thì không hiển thị lại thông tin đơn hàng
+    if ($bill_id !== $last_bill_id) {
+        echo '<tr>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '"><input type="checkbox" name="selected[]" value="' . $bill_id . '"></td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">DH' . $bill_id . '</td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">' . $kh . '</td>
+                <td>' . $bill["product_name"] . ' (' . $bill["soluong"] . ' cái)</td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">' . number_format($total, 0, '.', '.') . '</td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">Trực Tiếp</td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">' . $ttdh . '</td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">' . $ngaydathang . '</td>
+                <td rowspan="' . count(array_filter($listbill, fn($b) => $b["bill_id"] == $bill_id)) . '">
+                    <a href="index.php?act=editOrder&id=' . $bill_id . '" class="btn btn-warning btn-sm">Sửa</a>
+                    <a href="index.php?act=deleteOrder&id=' . $bill_id . '" class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+              </tr>';
+    } else {
+        // Hiển thị dòng chỉ chứa sản phẩm
+        echo '<tr>
+                <td>' . $bill["product_name"] . ' (' . $bill["soluong"] . ' cái)</td>
+              </tr>';
+    }
+
+    $last_bill_id = $bill_id;
+}
+?>
+
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="col-12 mt-3">
-                        <div class="d-flex justify-content-between">
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary" onclick="selectAll()">Chọn tất cả</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn btn-primary" onclick="deselectAll()">Bỏ chọn tất cả</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-danger" onclick="deleteSelected1()">Xóa các mục đã Chọn</button>
-                            </div>
-                            <div>
-                                <a href="index.php?act=addsp" class="btn btn-success">Nhập thêm</a>
-                            </div>
                         </div>
                     </div>
                     </form>
@@ -78,6 +73,7 @@ include "home.php";
     </div>
 </div>
 
+<!-- Toast thông báo -->
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">

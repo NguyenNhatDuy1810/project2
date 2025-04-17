@@ -13,6 +13,8 @@ include "../model/taikhoan.php";
 include "../model/binhluan.php";
 include "../model/cart.php";
 
+
+
 if (isset($_GET['act'])) {
     $act=$_GET['act'];
     switch ($act) {
@@ -242,6 +244,19 @@ if (isset($_GET['act'])) {
             $listbill = loadall_bill(0);
             include "bill/list.php";
              break;  
+             case 'tdt':
+                if (isset($_POST['search_date']) && !empty($_POST['search_date'])) {
+                    $search_date = trim($_POST['search_date']); // Lấy ngày nhập tay
+                    
+                    
+                    
+                    $listdoanhthu = timKiemDonHangTheoNgay($search_date); 
+                } else {
+                    $listdoanhthu = doanhthuTheoNgay(); 
+                }
+                include "doanhthu/tdt.php";
+                break;
+            
         case 'backadmin':
             Header("Location: ../admin/index.php");
             exit();

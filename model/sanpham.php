@@ -35,8 +35,8 @@ function viewsp($id) {
 }
 function countViewAll() {
     $sql = "SELECT SUM(view) AS total_view FROM sanpham";
-    $result = pdo_query_one($sql); // Lấy một dòng kết quả
-    return $result['total_view'] ?? 0; // Nếu không có dữ liệu thì trả về 0
+    $result = pdo_query_one($sql);
+    return $result['total_view'] ?? 0;
 }
 
 function insert_sanpham($tensp,$gianhapsp,$giasp,$hinh,$mota,$quantity, $iddm){
@@ -46,7 +46,7 @@ function insert_sanpham($tensp,$gianhapsp,$giasp,$hinh,$mota,$quantity, $iddm){
 
 function delete_sanpham($id) {
     $sql = "DELETE FROM sanpham WHERE id = ?";
-    $conn = pdo_get_connection(); // Giả sử bạn có một hàm để lấy kết nối PDO
+    $conn = pdo_get_connection(); 
     $stmt = $conn->prepare($sql);
     if ($stmt->execute([$id])) {
         return true;
@@ -66,7 +66,7 @@ function update_sanpham($id, $iddm, $tensp,$import_price, $giasp, $quantity, $mo
 }
 
 function load_sanpham_cungloai($id, $iddm) {
-    $sql = "SELECT * FROM sanpham WHERE iddm=" . $iddm . " AND id != " . $id; // Lấy sản phẩm khác id nhưng cùng danh mục
+    $sql = "SELECT * FROM sanpham WHERE iddm=" . $iddm . " AND id != " . $id; 
     return pdo_query($sql);
 }
 

@@ -1,9 +1,9 @@
 <?php
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']['id'])) {
     header('Location: /login/login.php');
     exit();
 }
-$user = $_SESSION['user']['name'];
+$user = $_SESSION['user']['id'];
 $name = $_SESSION['user']['name'];
 $address = $_SESSION['user']['address'];
 $email = $_SESSION['user']['email'];
